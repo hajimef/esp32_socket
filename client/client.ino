@@ -4,7 +4,7 @@ static const char *ssid = "ESP32Server";
 static const char *pass = "password";
 
 IPAddress ip(192, 168, 11, 2);
-IPAddress host(192, 168, 11, 1);
+IPAddress host(192, 168, 11, 12);
 const int sw_pin = 2;
 const int port = 12345;
 
@@ -40,13 +40,15 @@ void loop() {
     status = !status;
     // 点灯させる場合はサーバーに「On」の文字列を送信する
     if (status) {
-      client.print("On");
+      Serial.println("Send On");
+      client.print("On\n");
     }
     // 消灯させる場合はサーバーに「Off」の文字列を送信する
     else {
-      client.print("Off");
+      Serial.println("Send Off");
+      client.print("Off\n");
     }
-    client.print('\n');
+    //client.print('\n');
     // サーバーからのレスポンスを待つ
     unsigned long timeout = millis();
     while (client.available() == 0) {
