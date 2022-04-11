@@ -4,7 +4,7 @@ static const char *ssid = "ESP32Server";
 static const char *pass = "password";
 
 IPAddress ip(192, 168, 11, 2);
-IPAddress host(192, 168, 11, 12);
+IPAddress host(192, 168, 11, 1);
 const int sw_pin = 2;
 const int port = 12345;
 
